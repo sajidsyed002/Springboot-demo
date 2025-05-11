@@ -1,0 +1,75 @@
+server:
+  port: 1111
+
+welcome:
+  message: Welcome to daily code sd
+
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: Springboot-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/dcbapp
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: Welcome to daily code sd
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  application:
+    name: Springboot-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: Welcome to daily code sd
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: uat
+  application:
+    name: Springboot-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/dcbapp-uat
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: Welcome to daily code sd
